@@ -184,7 +184,7 @@ class="fixed inset-0 bg-black flex items-center justify-center z-[9999] overflow
     </h1>
 
 </div>
-    <audio id="weddingMusic" loop>
+    <audio id="weddingMusic">
         <source
             src="Inkem Inkem Inkem Kaavaale (3D) - SenSongsMp3.Co.mp3"
             type="audio/ogg">
@@ -872,6 +872,18 @@ function enterSite() {
     // optional: scroll to top
     window.scrollTo(0, 0);
 }
+        document.addEventListener("visibilitychange", function () {
+    const audio = document.getElementById("weddingMusic");
+
+    if (document.hidden) {
+        audio.pause();
+    }
+            window.addEventListener("beforeunload", function () {
+    const audio = document.getElementById("weddingMusic");
+    audio.pause();
+    audio.currentTime = 0;
+});
+});
     </script>
 </body>
 
