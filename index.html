@@ -498,7 +498,17 @@ border-2 border-white/20 hover:scale-105 transition duration-300">
                     <h2 class="font-serif text-3xl mb-10">
                         Blessings From
                     </h2>
+                          <!-- Bride Parents -->
+                    <div class="mb-8">
+                        <h3 class="font-semibold uppercase tracking-widest text-sm mb-2 text-gold-600">
+                            Bride's Parents
+                        </h3>
+                        <p class="font-serif text-xl">
+                            Mr. Kothapalli Satyanarayana & Mrs. Jayasree
+                        </p>
+                    </div>
 
+                    
                     <!-- Groom Parents -->
                     <div class="mb-8">
                         <h3 class="font-semibold uppercase tracking-widest text-sm mb-2 text-gold-600">
@@ -509,15 +519,7 @@ border-2 border-white/20 hover:scale-105 transition duration-300">
                         </p>
                     </div>
 
-                    <!-- Bride Parents -->
-                    <div class="mb-8">
-                        <h3 class="font-semibold uppercase tracking-widest text-sm mb-2 text-gold-600">
-                            Bride's Parents
-                        </h3>
-                        <p class="font-serif text-xl">
-                            Mr. Kothapalli Satyanarayana & Mrs. Jayasree
-                        </p>
-                    </div>
+                  
 
                     <!-- Grandparents -->
                     <p class="font-serif italic text-lg text-black-600 mt-10">
@@ -872,12 +874,7 @@ function enterSite() {
     // optional: scroll to top
     window.scrollTo(0, 0);
 }
-        document.addEventListener("visibilitychange", function () {
-    const audio = document.getElementById("weddingMusic");
-
-    if (document.hidden) {
-        audio.pause();
-    }
+       
             window.addEventListener("beforeunload", function () {
     const audio = document.getElementById("weddingMusic");
     audio.pause();
