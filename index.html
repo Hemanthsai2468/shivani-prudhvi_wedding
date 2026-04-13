@@ -693,7 +693,7 @@ border-2 border-white/20 hover:scale-105 transition duration-300">
         // Open Interaction
         openBtn.addEventListener('click', () => {
             // 1. Play Music
-            audio.volume = 1;
+            audio.volume = 0.4;
             audio.play().then(() => {
                 isPlaying = true;
                 musicControl.classList.remove('hidden');
