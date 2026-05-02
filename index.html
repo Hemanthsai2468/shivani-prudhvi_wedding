@@ -385,7 +385,11 @@ Shivani & Pruvdhi
             09 • MAY • 2026 
         </span>
 
+       
     </div>
+</div>
+ <div id="dateScrollArrow" class="mt-6 text-gold-500 text-2xl animate-bounce cursor-pointer">
+    ↓
 </div>
 
                
@@ -413,13 +417,13 @@ Shivani & Pruvdhi
                             </div>
                             <div class="absolute inset-0 border-4 border-royal-900 rounded-full transform -rotate-12">
                             </div>
-                            <img src="bavagaru final.jpg"
+                            <img src="bunny.jpg"
                                 class="w-full h-full object-cover rounded-full shadow-xl grayscale hover:grayscale-0 transition-all duration-500"
                                 alt="Groom">
                         </div>
-                        <h3 class="font-script text-4xl text-royal-900 mb-2">Pruvdhi</h3>
-                        <p class="font-sans text-gray-600 text-sm italic w-64 mx-auto">"The moment I saw her, I knew my
-                            search was over."</p>
+                        <h3 class="font-script text-4xl text-royal-900 mb-2">Shivani</h3>
+                        <p class="font-sans text-gray-600 text-sm italic w-64 mx-auto">"In him, I found my love, my best
+                            friend, and my home."</p>
                     </div>
 
                     <!-- Heart Icon -->
@@ -434,14 +438,13 @@ Shivani & Pruvdhi
                             </div>
                             <div class="absolute inset-0 border-4 border-royal-900 rounded-full transform rotate-12">
                             </div>
-                            <img src="bunny.jpg"
+                            <img src="bavagaru final.jpg"
                                 class="w-full h-full object-cover rounded-full shadow-xl grayscale hover:grayscale-0 transition-all duration-500"
                                 alt="Bride">
                                 
                         </div>
-                        <h3 class="font-script text-4xl text-royal-900 mb-2">Shivani</h3>
-                        <p class="font-sans text-gray-600 text-sm italic w-64 mx-auto">"In him, I found my love, my best
-                            friend, and my home."</p>
+                        <h3 class="font-script text-4xl text-royal-900 mb-2">Prudhvi</h3>
+                        <p class="font-sans text-gray-600 text-sm italic w-64 mx-auto">"The moment I saw her, I knew my search was over."</p>
                     </div>
                 </div>
                 <div class="mt-20 text-center cinematic-photo opacity-0">
@@ -452,11 +455,7 @@ Shivani & Pruvdhi
 
 <div class="relative max-w-3xl mx-auto group overflow-hidden rounded-xl cinematic-wrapper">
 
-    <!-- 💡 ADD HERE -->
-    <div class="light-rays"></div>
-
-    <!-- Existing glow -->
-    <div class="absolute inset-0 bg-yellow-400 opacity-20 blur-2xl"></div>
+    
 
     <!-- Your image -->
     <img src="combine.jpeg"
@@ -496,7 +495,7 @@ border-2 border-white/20 hover:scale-105 transition duration-300">
                     Shivani & Pruvdhi
                 </h3>
                 <p class="font-sans text-xl text-royal-900 mb-2">
-                    May 09, 2026 || 10:23 PM
+                    May 09, 2026 || 10:30 PM
                 </p>
                 <p class="text-royal-900 opacity-80 mb-6">
                     Sri Golden Celebrations A/C function hall 
@@ -516,58 +515,6 @@ border-2 border-white/20 hover:scale-105 transition duration-300">
     </div>
 </section>
 
-<section class="py-24 bg-royal-800 text-center">
-    <div class="container mx-auto px-4">
-
-        <!-- Title -->
-        <h2 class="font-serif text-4xl md:text-5xl text-gold-400 mb-6">
-            Reception
-        </h2>
-
-        <!-- Icon -->
-            <div class="w-16 h-16 mx-auto mb-6 bg-gold-500 rounded-full 
-            flex items-center justify-center shadow-lg">
-                <i class="fas fa-champagne-glasses text-royal-900 text-xl"></i>
-            </div>
-
-        <!-- Card -->
-        <div class="max-w-xl mx-auto bg-royal-900 p-10 rounded-2xl 
-        border border-gold-500/30 shadow-[0_0_20px_rgba(212,175,55,0.2)] 
-        hover:scale-105 transition duration-300 
-        hover:shadow-[0_10px_40px_rgba(212,175,55,0.4)]">
-
-            
-
-            <!-- Details -->
-            <h3 class="font-serif text-3xl text-gold-300 mb-4">
-                Wedding Reception
-            </h3>
-
-            <p class="text-gold-200 text-lg mb-2">
-                May 11, 2026 | 11:00 AM
-            </p>
-
-            <!-- ✅ FIXED LOCATION -->
-            <p class="text-gold-300 font-semibold mb-4 tracking-wide">
-                Ankampalam
-            </p>
-
-           
-
-            <!-- ✅ FIXED BUTTON -->
-            <a href="https://www.google.com/maps/search/?api=1&query=Ankampalem+Andhra+Pradesh"
-               target="_blank"
-               class="inline-flex items-center gap-2 mt-6 px-5 py-2 border border-gold-500 text-gold-300 
-               rounded-full text-sm hover:bg-gold-500 hover:text-royal-900 transition duration-300">
-
-                📍 View Location
-            </a>
-
-        </div>
-
-    </div>
-</section>
-</div>
 
 
 <!-- Family  (Grid) -->
@@ -939,6 +886,19 @@ window.onbeforeunload = function () {
             
             // start music after intro
             const audio = document.getElementById("weddingMusic");
+            let audioCtx, analyser, source, dataArray;
+
+function setupAudioAnalyzer() {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    analyser = audioCtx.createAnalyser();
+    analyser.fftSize = 64;
+
+    source = audioCtx.createMediaElementSource(audio);
+    source.connect(analyser);
+    analyser.connect(audioCtx.destination);
+
+    dataArray = new Uint8Array(analyser.frequencyBinCount);
+}
             if (audio) {
                 audio.currentTime = 0; 
                 audio.volume = 0;      
