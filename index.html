@@ -221,6 +221,26 @@ h2 {
 
     animation: shimmer 3s linear infinite;
 }
+
+.cinematic-photo {
+    transition: all 1s ease;
+}
+
+.cinematic-img {
+    transition: transform 8s ease;
+}
+
+.light-rays {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(255,215,0,0.25), transparent 70%);
+    opacity: 0;
+    transition: 1s;
+}
+
+.cinematic-wrapper:hover .light-rays {
+    opacity: 1;
+}
     </style>
 </head>
 
@@ -241,7 +261,7 @@ class="fixed inset-0 bg-black flex items-center justify-center z-[9999] overflow
 </div>
     <audio id="weddingMusic" loop>
         <source
-            src="ReelAudio-11061.mp3"
+            src="Seetha Kalyanam - SenSongsMp3.Co.mp3"
             type="audio/ogg">
     </audio>
 
@@ -393,7 +413,7 @@ Shivani & Pruvdhi
                             </div>
                             <div class="absolute inset-0 border-4 border-royal-900 rounded-full transform -rotate-12">
                             </div>
-                            <img src="groom.jpg"
+                            <img src="bavagaru final.jpg"
                                 class="w-full h-full object-cover rounded-full shadow-xl grayscale hover:grayscale-0 transition-all duration-500"
                                 alt="Groom">
                         </div>
@@ -414,7 +434,7 @@ Shivani & Pruvdhi
                             </div>
                             <div class="absolute inset-0 border-4 border-royal-900 rounded-full transform rotate-12">
                             </div>
-                            <img src="bride.jpg"
+                            <img src="bunny.jpg"
                                 class="w-full h-full object-cover rounded-full shadow-xl grayscale hover:grayscale-0 transition-all duration-500"
                                 alt="Bride">
                                 
@@ -424,7 +444,28 @@ Shivani & Pruvdhi
                             friend, and my home."</p>
                     </div>
                 </div>
+                <div class="mt-20 text-center cinematic-photo opacity-0">
 
+    <h3 class="font-serif text-3xl text-royal-900 mb-6">
+        Together Forever 💍
+    </h3>
+
+<div class="relative max-w-3xl mx-auto group overflow-hidden rounded-xl cinematic-wrapper">
+
+    <!-- 💡 ADD HERE -->
+    <div class="light-rays"></div>
+
+    <!-- Existing glow -->
+    <div class="absolute inset-0 bg-yellow-400 opacity-20 blur-2xl"></div>
+
+    <!-- Your image -->
+    <img src="combine.jpeg"
+        class="w-full rounded-xl border-4 border-gold-500 shadow-2xl 
+        transition duration-700 transform scale-105 cinematic-img">
+
+</div>
+
+</div>
                 <!-- Typewriter Text -->
                 <div class="mt-16 text-center max-w-2xl mx-auto">
                     <p id="storyTypewriter" class="font-serif text-xl md:text-2xl text-royal-800 leading-relaxed"></p>
@@ -955,6 +996,29 @@ function enterSite() {
 
 setInterval(createHeart, 1500);
         gsap.utils.toArray("section").forEach(section => {
+            if (document.querySelector(".cinematic-photo")) {
+    gsap.to(".cinematic-photo", {
+        scrollTrigger: {
+            trigger: ".cinematic-photo",
+            start: "top 80%"
+        },
+        opacity: 1,
+        y: -20,
+        duration: 1.5,
+        ease: "power3.out"
+    });
+
+    // slow zoom effect
+    gsap.to(".cinematic-img", {
+        scale: 1,
+        duration: 10,
+        ease: "none",
+        scrollTrigger: {
+            trigger: ".cinematic-photo",
+            start: "top 80%"
+        }
+    });
+}
     gsap.from(section, {
         scrollTrigger: {
             trigger: section,
