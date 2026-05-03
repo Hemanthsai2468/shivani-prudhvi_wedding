@@ -214,10 +214,10 @@ h2 {
 
     color: transparent;
 
-    background-clip: text;              /* standard */
-    -webkit-background-clip: text;      /* for Chrome/Safari */
+    background-clip: text;              
+    -webkit-background-clip: text;      
 
-    -webkit-text-fill-color: transparent; /* IMPORTANT for webkit */
+    -webkit-text-fill-color: transparent; 
 
     animation: shimmer 3s linear infinite;
 }
@@ -240,6 +240,14 @@ h2 {
 
 .cinematic-wrapper:hover .light-rays {
     opacity: 1;
+}
+
+video {
+    transition: transform 1s ease;
+}
+
+video:hover {
+    transform: scale(1.03);
 }
     </style>
 </head>
@@ -448,23 +456,27 @@ Shivani & Pruvdhi
                     </div>
                 </div>
                 <div class="mt-20 text-center cinematic-photo opacity-0">
+</div>
 
-    <h3 class="font-serif text-3xl text-royal-900 mb-6">
-        Together Forever 💍
+                <section class="section-spacing text-center">
+
+    <h3 class="text-3xl text-gold-500 mb-6">
+        Our Moment 💖
     </h3>
 
-<div class="relative max-w-3xl mx-auto group overflow-hidden rounded-xl cinematic-wrapper">
+    <div class="relative max-w-3xl mx-auto overflow-hidden rounded-xl shadow-2xl">
 
-    
+        <video id="coupleVideo"
+            class="w-full rounded-xl"
+            unmuted
+            playsinline
+            preload="metadata">
+            <source src="invitation.mp4" type="video/mp4">
+        </video>
 
-    <!-- Your image -->
-    <img src="combine.jpeg"
-        class="w-full rounded-xl border-4 border-gold-500 shadow-2xl 
-        transition duration-700 transform scale-105 cinematic-img">
+    </div>
 
-</div>
-
-</div>
+</section>
                 <!-- Typewriter Text -->
                 <div class="mt-16 text-center max-w-2xl mx-auto">
                     <p id="storyTypewriter" class="font-serif text-xl md:text-2xl text-royal-800 leading-relaxed"></p>
@@ -989,6 +1001,22 @@ setInterval(createHeart, 1500);
         duration: 1
     });
 });
+
+const video = document.getElementById("coupleVideo");
+
+if (video) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                video.play().catch(() => {});
+            } else {
+                video.pause();
+            }
+        });
+    }, { threshold: 0.6 });
+
+    observer.observe(video);
+}
     </script>
 </body>
 
